@@ -588,7 +588,7 @@ class _addupdateEventState extends State<addmember> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text("Invalid Users"),
+                        title: Text("Invalid User"),
                         content: Text("The entered ARID No is invalid."),
                         actions: <Widget>[
                           TextButton(
