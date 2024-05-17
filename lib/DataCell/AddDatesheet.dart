@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:fyp_academic_calendar/DataCell/addStudentTT.dart';
-import 'package:fyp_academic_calendar/DataCell/addTeachersTT.dart';
+import 'package:fyp_academic_calendar/DataCell/addTT.dart';
+import 'package:fyp_academic_calendar/DataCell/addDutysheet.dart';
 
 import 'package:fyp_academic_calendar/DataCell/notifications.dart';
 import 'package:fyp_academic_calendar/DataCell/AddSittingPlan.dart';
@@ -53,7 +53,7 @@ class _MyFormScreenState extends State<AddDatesheet> {
             child: Text('Datacell'),
           ),
           ListTile(
-            title: const Text('Add Date Sheet'),
+            title: const Text('Add DateSheet'),
             onTap: () {
               Navigator.push(
                 context,
@@ -62,7 +62,7 @@ class _MyFormScreenState extends State<AddDatesheet> {
             },
           ),
           ListTile(
-            title: const Text('Add seating Plan'),
+            title: const Text('Add Seating Plan'),
             onTap: () {
               Navigator.push(
                 context,
@@ -71,7 +71,7 @@ class _MyFormScreenState extends State<AddDatesheet> {
             },
           ),
           ListTile(
-            title: const Text('Add Teachers Timetable'),
+            title: const Text('Add Timetable'),
             onTap: () {
               Navigator.push(
                 context,
@@ -80,7 +80,7 @@ class _MyFormScreenState extends State<AddDatesheet> {
             },
           ),
           ListTile(
-            title: const Text('Add Students TimeTable'),
+            title: const Text('Add Duty Sheet'),
             onTap: () {
               Navigator.push(
                 context,

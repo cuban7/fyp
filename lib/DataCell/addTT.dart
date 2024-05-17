@@ -4,19 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:fyp_academic_calendar/DataCell/AddDatesheet.dart';
 import 'package:fyp_academic_calendar/DataCell/AddSittingPlan.dart';
 
-import 'package:fyp_academic_calendar/DataCell/addStudentTT.dart';
-
+import 'package:fyp_academic_calendar/DataCell/addDutysheet.dart';
 
 import 'package:fyp_academic_calendar/DataCell/notifications.dart';
 
 import 'package:fyp_academic_calendar/loginscreen.dart';
 
-class addTeachersTT extends StatefulWidget {
+class addStudentsTT extends StatefulWidget {
   @override
   _MyFormScreenState createState() => _MyFormScreenState();
 }
 
-class _MyFormScreenState extends State<addTeachersTT> {
+class _MyFormScreenState extends State<addStudentsTT> {
   final TextEditingController _textController1 = TextEditingController();
 
   final TextEditingController _fileController = TextEditingController();
@@ -53,7 +52,7 @@ class _MyFormScreenState extends State<addTeachersTT> {
             child: Text('Datacell'),
           ),
           ListTile(
-            title: const Text('Add Date Sheet'),
+            title: const Text('Add DateSheet'),
             onTap: () {
               Navigator.push(
                 context,
@@ -62,7 +61,7 @@ class _MyFormScreenState extends State<addTeachersTT> {
             },
           ),
           ListTile(
-            title: const Text('Add seating Plan'),
+            title: const Text('Add Seating Plan'),
             onTap: () {
               Navigator.push(
                 context,
@@ -71,20 +70,20 @@ class _MyFormScreenState extends State<addTeachersTT> {
             },
           ),
           ListTile(
-            title: const Text('Add Teachers Timetable'),
+            title: const Text('Add Timetable'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  addTeachersTT()),
+                MaterialPageRoute(builder: (context) => addTeachersTT()),
               );
             },
           ),
           ListTile(
-            title: const Text('Add Students TimeTable'),
+            title: const Text('Add Duty Sheet'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => addStudentsTT()),
+                MaterialPageRoute(builder: (context) =>  addStudentsTT()),
               );
             },
           ),
@@ -97,7 +96,7 @@ class _MyFormScreenState extends State<addTeachersTT> {
               // For example, you can navigate to the login screen
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                MaterialPageRoute(builder: (context) =>  LoginScreen()),
               );
             },
           ),
@@ -152,7 +151,7 @@ class _MyFormScreenState extends State<addTeachersTT> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Add Teacher's Timetable",
+                    "Add Student's Timetable",
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -160,7 +159,7 @@ class _MyFormScreenState extends State<addTeachersTT> {
                   ),
                   const SizedBox(height: 20),
                   _buildTextField("Title", _textController1),
-                  _buildFileUploadField("Teacher's Timetable", _fileController),
+                  _buildFileUploadField("Student's Timetable", _fileController),
                   SizedBox(
                     height: 10,
                   ),
@@ -272,7 +271,7 @@ class _MyFormScreenState extends State<addTeachersTT> {
     // Perform actions with the form data
     print('Title: $text1');
 
-    print('Teachers Timetable: $uploadedFile');
+    print('Students Timetable: $uploadedFile');
 
     // Reset text fields after submission
     _textController1.clear();

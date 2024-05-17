@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fyp_academic_calendar/DataCell/AddDatesheet.dart';
 import 'package:fyp_academic_calendar/DataCell/AddSittingPlan.dart';
-import 'package:fyp_academic_calendar/DataCell/addStudentTT.dart';
-import 'package:fyp_academic_calendar/DataCell/addTeachersTT.dart';
+import 'package:fyp_academic_calendar/DataCell/addTT.dart';
+import 'package:fyp_academic_calendar/DataCell/addDutysheet.dart';
 import 'package:fyp_academic_calendar/DataCell/notifications.dart';
 
 import 'package:fyp_academic_calendar/Student/tab/tab_count/event_tab_for_student.dart';
@@ -67,7 +67,7 @@ class _CalendarAppState extends State<DatacellDashboard> {
             child: Text('Datacell'),
           ),
           ListTile(
-            title: const Text('Add Date Sheet'),
+            title: const Text('Add DateSheet'),
             onTap: () {
               Navigator.push(
                 context,
@@ -76,7 +76,7 @@ class _CalendarAppState extends State<DatacellDashboard> {
             },
           ),
           ListTile(
-            title: const Text('Add seating Plan'),
+            title: const Text('Add Seating Plan'),
             onTap: () {
               Navigator.push(
                 context,
@@ -85,7 +85,7 @@ class _CalendarAppState extends State<DatacellDashboard> {
             },
           ),
           ListTile(
-            title: const Text('Add Teachers Timetable'),
+            title: const Text('Add Timetable'),
             onTap: () {
               Navigator.push(
                 context,
@@ -94,11 +94,11 @@ class _CalendarAppState extends State<DatacellDashboard> {
             },
           ),
           ListTile(
-            title: const Text('Add Students TimeTable'),
+            title: const Text('Add Duty Sheet'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => addStudentsTT()),
+                MaterialPageRoute(builder: (context) =>  addStudentsTT()),
               );
             },
           ),
@@ -111,7 +111,7 @@ class _CalendarAppState extends State<DatacellDashboard> {
               // For example, you can navigate to the login screen
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                MaterialPageRoute(builder: (context) =>  LoginScreen()),
               );
             },
           ),

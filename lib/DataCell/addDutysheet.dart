@@ -4,18 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:fyp_academic_calendar/DataCell/AddDatesheet.dart';
 import 'package:fyp_academic_calendar/DataCell/AddSittingPlan.dart';
 
-import 'package:fyp_academic_calendar/DataCell/addTeachersTT.dart';
+import 'package:fyp_academic_calendar/DataCell/addTT.dart';
+
 
 import 'package:fyp_academic_calendar/DataCell/notifications.dart';
 
 import 'package:fyp_academic_calendar/loginscreen.dart';
 
-class addStudentsTT extends StatefulWidget {
+class addTeachersTT extends StatefulWidget {
   @override
   _MyFormScreenState createState() => _MyFormScreenState();
 }
 
-class _MyFormScreenState extends State<addStudentsTT> {
+class _MyFormScreenState extends State<addTeachersTT> {
   final TextEditingController _textController1 = TextEditingController();
 
   final TextEditingController _fileController = TextEditingController();
@@ -45,14 +46,14 @@ class _MyFormScreenState extends State<addStudentsTT> {
           ),
         ],
       ),
-      drawer: Drawer(
+     drawer: Drawer(
         child: ListView(padding: EdgeInsets.zero, children: [
           const DrawerHeader(
             decoration: BoxDecoration(color: Colors.teal),
             child: Text('Datacell'),
           ),
           ListTile(
-            title: const Text('Add Date Sheet'),
+            title: const Text('Add DateSheet'),
             onTap: () {
               Navigator.push(
                 context,
@@ -61,7 +62,7 @@ class _MyFormScreenState extends State<addStudentsTT> {
             },
           ),
           ListTile(
-            title: const Text('Add seating Plan'),
+            title: const Text('Add Seating Plan'),
             onTap: () {
               Navigator.push(
                 context,
@@ -70,7 +71,7 @@ class _MyFormScreenState extends State<addStudentsTT> {
             },
           ),
           ListTile(
-            title: const Text('Add Teachers Timetable'),
+            title: const Text('Add Timetable'),
             onTap: () {
               Navigator.push(
                 context,
@@ -79,11 +80,11 @@ class _MyFormScreenState extends State<addStudentsTT> {
             },
           ),
           ListTile(
-            title: const Text('Add Students TimeTable'),
+            title: const Text('Add Duty Sheet'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => addStudentsTT()),
+                MaterialPageRoute(builder: (context) =>  addStudentsTT()),
               );
             },
           ),
@@ -96,7 +97,7 @@ class _MyFormScreenState extends State<addStudentsTT> {
               // For example, you can navigate to the login screen
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                MaterialPageRoute(builder: (context) =>  LoginScreen()),
               );
             },
           ),
@@ -151,7 +152,7 @@ class _MyFormScreenState extends State<addStudentsTT> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Add Student's Timetable",
+                    "Add Teacher's Timetable",
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -159,7 +160,7 @@ class _MyFormScreenState extends State<addStudentsTT> {
                   ),
                   const SizedBox(height: 20),
                   _buildTextField("Title", _textController1),
-                  _buildFileUploadField("Student's Timetable", _fileController),
+                  _buildFileUploadField("Teacher's Timetable", _fileController),
                   SizedBox(
                     height: 10,
                   ),
@@ -271,7 +272,7 @@ class _MyFormScreenState extends State<addStudentsTT> {
     // Perform actions with the form data
     print('Title: $text1');
 
-    print('Students Timetable: $uploadedFile');
+    print('Teachers Timetable: $uploadedFile');
 
     // Reset text fields after submission
     _textController1.clear();
