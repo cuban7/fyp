@@ -554,71 +554,72 @@ class _addupdateEventState extends State<addmember> {
       ),
     );
   }
-Widget _SEARCHField(String label) {
-  return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-    child: Row(
-      children: [
-        SizedBox(
-          width: 100,
-          child: Row(
-            children: [
-              Text(
-                label,
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+
+  Widget _SEARCHField(String label) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 100,
+            child: Row(
+              children: [
+                Text(
+                  label,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          child: TextFormField(
-            onChanged: (value) async {
-              // Call a function to check if the ARID No exists in the database
-              bool isValidUser = await checkARIDNoValidity(value);
-              if (isValidUser) {
-                // If the ARID No is valid, fetch and display user data
-                fetchUserData(value);
-              } else {
-                // If the ARID No is invalid, show a popup
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text("Invalid User"),
-                      content: Text("The entered ARID No is invalid."),
-                      actions: <Widget>[
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text("OK"),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              }
-            },
-            readOnly: false, // Make the TextFormField editable
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.grey[200],
-              suffixIcon: GestureDetector(
-                onTap: () async {
-                  // Add your search functionality here
-                  print('Search clicked');
-                },
-                child: Icon(Icons.search),
-              ),
-              // Add more decoration properties if needed
+              ],
             ),
           ),
-        ),
-      ],
-    ),
-  );
-}
+          Expanded(
+            child: TextFormField(
+              onChanged: (value) async {
+                // Call a function to check if the ARID No exists in the database
+                bool isValidUser = await checkARIDNoValidity(value);
+                if (isValidUser) {
+                  // If the ARID No is valid, fetch and display user data
+                  fetchUserData(value);
+                } else {
+                  // If the ARID No is invalid, show a popup
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Invalid Users"),
+                        content: Text("The entered ARID No is invalid."),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text("OK"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+              },
+              readOnly: false, // Make the TextFormField editable
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.grey[200],
+                suffixIcon: GestureDetector(
+                  onTap: () async {
+                    // Add your search functionality here
+                    print('Search clicked');
+                  },
+                  child: Icon(Icons.search),
+                ),
+                // Add more decoration properties if needed
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
