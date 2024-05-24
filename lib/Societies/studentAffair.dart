@@ -61,15 +61,15 @@ class _stdAffairState extends State<stdAffair> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Add Member'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => addmember()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Add Member'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => addmember()),
+          //     );
+          //   },
+          // ),
           ListTile(
             title: const Text('Student Affair'),
             onTap: () {
@@ -116,7 +116,7 @@ class _stdAffairState extends State<stdAffair> {
                         SizedBox(height: 10),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],

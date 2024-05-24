@@ -54,16 +54,16 @@ class addupdateEvent extends StatelessWidget {
               );
             },
           ),
+          // ListTile(
+          //   title: const Text('Add Member'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => addmember()),
+          //     );
+          //   },
+          // ),
           ListTile(
-            title: const Text('Add Member'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => addmember()),
-              );
-            },
-          ),
-             ListTile(
             title: const Text('Student Affair'),
             onTap: () {
               Navigator.push(
@@ -109,7 +109,7 @@ class addupdateEvent extends StatelessWidget {
                         SizedBox(height: 10),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],
@@ -163,7 +163,6 @@ class addupdateEvent extends StatelessWidget {
         children: [
           SizedBox(
             width: 100,
-            
             child: Text(
               label,
               style: const TextStyle(
@@ -193,90 +192,93 @@ class addupdateEvent extends StatelessWidget {
       ),
     );
   }
-Widget _buildLocationCheckboxes() {
-  return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-    child: Row(
-      children: [
-        SizedBox(
-          width: 100,
-          child: Text(
-            'Location:',
-            style: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+
+  Widget _buildLocationCheckboxes() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 100,
+            child: Text(
+              'Location:',
+              style: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      // Handle checkbox click for Location 1
-                    },
-                    child: Container(
-                      width: 24,
-                      height: 24,
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Icon(
-                        Icons.check,
-                        size: 18,
-                        color: Colors.black, // Set transparent initially
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      // Handle checkbox click for Location 2
-                    },
-                    child: Container(
-                      width: 24,
-                      height: 24,
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Icon(
-                        Icons.check,
-                        size: 18,
-                        color: Colors.transparent, // Set transparent initially
+          Expanded(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Handle checkbox click for Location 1
+                      },
+                      child: Container(
+                        width: 24,
+                        height: 24,
+                        margin: const EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Icon(
+                          Icons.check,
+                          size: 18,
+                          color: Colors.black, // Set transparent initially
+                        ),
                       ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      // Handle checkbox click for Location 3
-                    },
-                    child: Container(
-                      width: 24,
-                      height: 24,
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Icon(
-                        Icons.check,
-                        size: 18,
-                        color: Colors.transparent, // Set transparent initially
+                    GestureDetector(
+                      onTap: () {
+                        // Handle checkbox click for Location 2
+                      },
+                      child: Container(
+                        width: 24,
+                        height: 24,
+                        margin: const EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Icon(
+                          Icons.check,
+                          size: 18,
+                          color:
+                              Colors.transparent, // Set transparent initially
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    GestureDetector(
+                      onTap: () {
+                        // Handle checkbox click for Location 3
+                      },
+                      child: Container(
+                        width: 24,
+                        height: 24,
+                        margin: const EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Icon(
+                          Icons.check,
+                          size: 18,
+                          color:
+                              Colors.transparent, // Set transparent initially
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
-  );
-}
+        ],
+      ),
+    );
+  }
 }

@@ -29,7 +29,7 @@ class _DateSheetState extends State<TeacherDatesheet> {
   Future<void> fetchDateSheet() async {
     try {
       final response = await http.get(Uri.parse(
-          'http://192.168.1.154/fyp_1/api/Teacher/DateSheet?userId=1'));
+          'http://192.168.0.119/fyp_1/api/Teacher/DateSheet?userId=1'));
 
       if (response.statusCode == 200) {
         print('Seating Plan API response: ${response.body}');
@@ -82,7 +82,7 @@ class _DateSheetState extends State<TeacherDatesheet> {
             child: Text('Teacher'),
           ),
           ListTile(
-            title: const Text('Teacher Profile'),
+            title: const Text('Profile'),
             onTap: () {
               Navigator.push(
                 context,
@@ -91,7 +91,7 @@ class _DateSheetState extends State<TeacherDatesheet> {
             },
           ),
           ListTile(
-            title: const Text('Teacher Timetable'),
+            title: const Text('Timetable'),
             onTap: () {
               Navigator.push(
                 context,
@@ -99,24 +99,24 @@ class _DateSheetState extends State<TeacherDatesheet> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Teacher DateSheet'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TeacherDatesheet()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Teacher Sitting Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TeacherSittingPlan()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('DateSheet'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => TeacherDatesheet()),
+          //     );
+          //   },
+          // ),
+          // ListTile(
+          //   title: const Text('DutySheet'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => TeacherDutySheet()),
+          //     );
+          //   },
+          // ),
           const Divider(),
           ListTile(
             title: const Text('Logout'),
@@ -157,7 +157,7 @@ class _DateSheetState extends State<TeacherDatesheet> {
                         ),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],

@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
     String password = pass.text;
 
     final apiUrl =
-        'http://192.168.1.154/fyp_1/api/Authorization/signin?name=${username}&pass=${password}'; // Replace port with your actual port number
+        'http://192.168.0.119/fyp_1/api/Authorization/signin?name=${username}&pass=${password}'; // Replace port with your actual port number
     try {
       final response = await http.get(Uri.parse(apiUrl), headers: {
         // 'Username': username,

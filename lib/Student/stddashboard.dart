@@ -95,15 +95,15 @@ class _stdDashboardState extends State<stdDashboard> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Sitting Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => stdSittingPlan()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Seating Plan'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => stdSittingPlan()),
+          //     );
+          //   },
+          // ),
           const Divider(),
           ListTile(
             title: const Text('Logout'),
@@ -152,7 +152,7 @@ class _stdDashboardState extends State<stdDashboard> {
                                 style: TextStyle(
                                     fontSize: 22, fontWeight: FontWeight.w700)),
                           ),
-                          Text('2023-2024',
+                          Text('2023',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w700)),
                         ],

@@ -5,7 +5,6 @@ import 'package:fyp_academic_calendar/Director/directorSP.dart';
 import 'package:fyp_academic_calendar/Director/studentTT.dart';
 import 'package:fyp_academic_calendar/Director/teacherTT.dart';
 
-
 import 'package:fyp_academic_calendar/Student/tab/tab_count/event_tab_for_student.dart';
 import 'package:fyp_academic_calendar/Student/tab/tab_count/semester_tab_student.dart';
 import 'package:fyp_academic_calendar/Student/tab/tab_count/year_tab_for_student.dart';
@@ -33,8 +32,12 @@ class _CalendarAppState extends State<directorDashboard> {
   ];
 
   List<DateTime> examDates = [
-    DateTime(2024, 1, 10), DateTime(2024, 1, 11), DateTime(2024, 1, 12),
-    DateTime(2024, 1, 13), DateTime(2024, 1, 14), DateTime(2024, 1, 15),
+    DateTime(2024, 1, 10),
+    DateTime(2024, 1, 11),
+    DateTime(2024, 1, 12),
+    DateTime(2024, 1, 13),
+    DateTime(2024, 1, 14),
+    DateTime(2024, 1, 15),
     DateTime(2024, 1, 16),
   ];
 
@@ -76,15 +79,15 @@ class _CalendarAppState extends State<directorDashboard> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Sitting Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const sittingplan()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Sitting Plan'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => const sittingplan()),
+          //     );
+          //   },
+          // ),
           ListTile(
             title: const Text('Teacher Timetable'),
             onTap: () {
@@ -116,7 +119,7 @@ class _CalendarAppState extends State<directorDashboard> {
           ),
         ]),
       ),
-       body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -151,7 +154,7 @@ class _CalendarAppState extends State<directorDashboard> {
                                 style: TextStyle(
                                     fontSize: 22, fontWeight: FontWeight.w700)),
                           ),
-                          Text('2023-2024',
+                          Text('2023',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w700)),
                         ],

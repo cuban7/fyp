@@ -28,7 +28,7 @@ class _DateSheetState extends State<stdDatesheet> {
   Future<void> fetchDateSheet() async {
     try {
       final response = await http.get(Uri.parse(
-          'http://192.168.1.154/fyp_1/api/Student/SeatingPlan?userId=1'));
+          'http://192.168.0.119/fyp_1/api/Student/SeatingPlan?userId=1'));
 
       if (response.statusCode == 200) {
         print('Seating Plan API response: ${response.body}');
@@ -107,15 +107,15 @@ class _DateSheetState extends State<stdDatesheet> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Sitting Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => stdSittingPlan()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Seating Plan'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => stdSittingPlan()),
+          //     );
+          //   },
+          // ),
           const Divider(),
           ListTile(
             title: const Text('Logout'),
@@ -156,7 +156,7 @@ class _DateSheetState extends State<stdDatesheet> {
                         ),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],

@@ -28,7 +28,7 @@ class _DateSheetState extends State<stdSittingPlan> {
   Future<void> fetchSeatingPlan() async {
     try {
       final response = await http.get(Uri.parse(
-          'http://192.168.1.154/fyp_1/api/Student/SeatingPlan?userId=1'));
+          'http://192.168.0.119/fyp_1/api/Student/SeatingPlan?userId=1'));
 
       if (response.statusCode == 200) {
         print('Seating Plan API response: ${response.body}');
@@ -108,7 +108,7 @@ class _DateSheetState extends State<stdSittingPlan> {
             },
           ),
           ListTile(
-            title: const Text('Sitting Plan'),
+            title: const Text('Seating Plan'),
             onTap: () {
               Navigator.push(
                 context,
@@ -156,7 +156,7 @@ class _DateSheetState extends State<stdSittingPlan> {
                         ),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],
@@ -171,7 +171,7 @@ class _DateSheetState extends State<stdSittingPlan> {
               children: [
                 // Add some space between the avatar and text
                 Text(
-                  'Sitting Plan',
+                  'Seating Plan',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

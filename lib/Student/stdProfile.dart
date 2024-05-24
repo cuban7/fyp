@@ -37,7 +37,7 @@ class _StdProfileState extends State<stdProfile> {
 
   Future<void> fetchData() async {
     final response = await http.get(
-        Uri.parse('http://192.168.1.154/fyp_1/api/Student/Profile?userId=1'));
+        Uri.parse('http://192.168.0.119/fyp_1/api/Student/Profile?userId=1'));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> responseData =
@@ -112,15 +112,15 @@ class _StdProfileState extends State<stdProfile> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Sitting Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => stdSittingPlan()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Seating Plan'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => stdSittingPlan()),
+          //     );
+          //   },
+          // ),
           const Divider(),
           ListTile(
             title: const Text('Logout'),
@@ -161,7 +161,7 @@ class _StdProfileState extends State<stdProfile> {
                         ),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],

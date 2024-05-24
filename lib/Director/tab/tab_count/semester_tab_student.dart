@@ -22,7 +22,7 @@ class SemesterCalendarStudent extends StatefulWidget {
 }
 
 class _YearCalendarStdState extends State<SemesterCalendarStudent> {
-  String _selectedSemester = 'Spring'; // Default selected semester
+  String _selectedSemester = 'Fall'; // Default selected semester
 
   @override
   Widget build(BuildContext context) {

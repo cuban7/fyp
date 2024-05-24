@@ -81,15 +81,15 @@ class _datesheetState extends State<datesheet> {
               Navigator.pop(context); // Close the drawer
             },
           ),
-          ListTile(
-            title: const Text('Sitting Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const sittingplan()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Sitting Plan'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => const sittingplan()),
+          //     );
+          //   },
+          // ),
           ListTile(
             title: const Text('Teacher Timetable'),
             onTap: () {
@@ -148,7 +148,7 @@ class _datesheetState extends State<datesheet> {
                               fontSize: 14, fontWeight: FontWeight.bold)),
                       Text('BIIT Academic Calendar',
                           style: TextStyle(fontSize: 18)),
-                      Text('2023-2024',
+                      Text('2023',
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.bold)),
                     ],
@@ -182,13 +182,11 @@ class _datesheetState extends State<datesheet> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       IconButton(
-                        icon:
-                            Icon(Icons.tune), // Filter icon button
+                        icon: Icon(Icons.tune), // Filter icon button
                         onPressed: _onFilterPressed,
                       ),
                     ],
                   ),
-                
                 ],
               ),
             ),

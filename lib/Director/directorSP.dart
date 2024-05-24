@@ -152,7 +152,7 @@ class _datesheetState extends State<sittingplan> {
                               fontSize: 14, fontWeight: FontWeight.bold)),
                       Text('BIIT Academic Calendar',
                           style: TextStyle(fontSize: 18)),
-                      Text('2023-2024',
+                      Text('2023',
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.bold)),
                     ],

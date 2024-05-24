@@ -8,12 +8,12 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:fyp_academic_calendar/loginscreen.dart';
 
-class TeacherSittingPlan extends StatefulWidget {
+class TeacherDutySheet extends StatefulWidget {
   @override
   _DateSheetState createState() => _DateSheetState();
 }
 
-class _DateSheetState extends State<TeacherSittingPlan> {
+class _DateSheetState extends State<TeacherDutySheet> {
   List<String> daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   List<TextEditingController> controllers =
       List.generate(8, (_) => TextEditingController());
@@ -28,7 +28,7 @@ class _DateSheetState extends State<TeacherSittingPlan> {
   Future<void> fetchSeatingPlan() async {
     try {
       final response = await http.get(Uri.parse(
-          'http://192.168.1.154/fyp_1/api/Teacher/SeatingPlan?userId=1'));
+          'http://192.168.0.119/fyp_1/api/Teacher/SeatingPlan?userId=1'));
 
       if (response.statusCode == 200) {
         print('Seating Plan API response: ${response.body}');
@@ -81,7 +81,7 @@ class _DateSheetState extends State<TeacherSittingPlan> {
             child: Text('Teacher'),
           ),
           ListTile(
-            title: const Text('Teacher Profile'),
+            title: const Text('Profile'),
             onTap: () {
               Navigator.push(
                 context,
@@ -89,30 +89,30 @@ class _DateSheetState extends State<TeacherSittingPlan> {
               );
             },
           ),
+          // ListTile(
+          //   title: const Text('Timetable'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => TeacherTimetable()),
+          //     );
+          //   },
+          // ),
+          // ListTile(
+          //   title: const Text('DateSheet'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => TeacherDatesheet()),
+          //     );
+          //   },
+          // ),
           ListTile(
-            title: const Text('Teacher Timetable'),
+            title: const Text('DutySheet'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TeacherTimetable()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Teacher DateSheet'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TeacherDatesheet()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Teacher Sitting Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TeacherSittingPlan()),
+                MaterialPageRoute(builder: (context) => TeacherDutySheet()),
               );
             },
           ),
@@ -156,7 +156,7 @@ class _DateSheetState extends State<TeacherSittingPlan> {
                         ),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],
@@ -171,7 +171,7 @@ class _DateSheetState extends State<TeacherSittingPlan> {
               children: [
                 // Add some space between the avatar and text
                 Text(
-                  'Sitting Plan',
+                  'DutySheet',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

@@ -110,7 +110,7 @@ class _AddUserState extends State<AddUser> {
                         SizedBox(height: 10),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],
@@ -144,7 +144,7 @@ class _AddUserState extends State<AddUser> {
                   style: TextStyle(
                       color: Colors.white)), // Set text color to white
               style: ElevatedButton.styleFrom(
-                primary: Colors.green.shade900,
+                primary: Colors.teal,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -254,7 +254,7 @@ class _AddUserState extends State<AddUser> {
 
     var jsonData = jsonEncode(userData);
 
-    var url = Uri.parse('http://192.168.1.154/fyp_1/api/SystemAdmin/AddUser');
+    var url = Uri.parse('http://192.168.0.119/fyp_1/api/SystemAdmin/AddUser');
     var response = await http.post(
       url,
       headers: <String, String>{

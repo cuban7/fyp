@@ -180,7 +180,7 @@ class _CalendarAppState extends State<extra> {
                           //     style: TextStyle(
                           //         fontSize: 14, fontWeight: FontWeight.bold)),
 
-                          Text('2023-2024',
+                          Text('2023',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w700)),
                         ],
@@ -436,19 +436,17 @@ class YearCalendar extends StatelessWidget {
               ],
             ),
           ),
-
           ListView.builder(
             shrinkWrap: true,
             itemCount: fruits.length,
-            physics:const  NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               final Color color = tileColors[index % tileColors.length];
 
               return Container(
-                padding: EdgeInsets.only(left: 20,right: 20),
+                padding: EdgeInsets.only(left: 20, right: 20),
                 decoration: BoxDecoration(
-
-                  color:color,
+                  color: color,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

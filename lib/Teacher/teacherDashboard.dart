@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 import 'package:fyp_academic_calendar/Student/tab/tab_count/event_tab_for_student.dart';
 import 'package:fyp_academic_calendar/Student/tab/tab_count/semester_tab_student.dart';
 import 'package:fyp_academic_calendar/Student/tab/tab_count/year_tab_for_student.dart';
@@ -34,8 +32,12 @@ class _CalendarAppState extends State<teacherDashboard> {
   ];
 
   List<DateTime> examDates = [
-    DateTime(2024, 1, 10), DateTime(2024, 1, 11), DateTime(2024, 1, 12),
-    DateTime(2024, 1, 13), DateTime(2024, 1, 14), DateTime(2024, 1, 15),
+    DateTime(2024, 1, 10),
+    DateTime(2024, 1, 11),
+    DateTime(2024, 1, 12),
+    DateTime(2024, 1, 13),
+    DateTime(2024, 1, 14),
+    DateTime(2024, 1, 15),
     DateTime(2024, 1, 16),
   ];
 
@@ -69,7 +71,7 @@ class _CalendarAppState extends State<teacherDashboard> {
             child: Text('Teacher'),
           ),
           ListTile(
-            title: const Text('Teacher Profile'),
+            title: const Text('Profile'),
             onTap: () {
               Navigator.push(
                 context,
@@ -78,7 +80,7 @@ class _CalendarAppState extends State<teacherDashboard> {
             },
           ),
           ListTile(
-            title: const Text('Teacher Timetable'),
+            title: const Text('Timetable'),
             onTap: () {
               Navigator.push(
                 context,
@@ -86,24 +88,24 @@ class _CalendarAppState extends State<teacherDashboard> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Teacher DateSheet'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TeacherDatesheet()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Teacher Sitting Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TeacherSittingPlan()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('DateSheet'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => TeacherDatesheet()),
+          //     );
+          //   },
+          // ),
+          // ListTile(
+          //   title: const Text('DutySheet'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => TeacherDutySheet()),
+          //     );
+          //   },
+          // ),
           const Divider(),
           ListTile(
             title: const Text('Logout'),
@@ -117,7 +119,7 @@ class _CalendarAppState extends State<teacherDashboard> {
           ),
         ]),
       ),
- body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -152,7 +154,7 @@ class _CalendarAppState extends State<teacherDashboard> {
                                 style: TextStyle(
                                     fontSize: 22, fontWeight: FontWeight.w700)),
                           ),
-                          Text('2023-2024',
+                          Text('2023',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w700)),
                         ],

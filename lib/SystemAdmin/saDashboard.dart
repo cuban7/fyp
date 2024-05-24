@@ -44,7 +44,7 @@ class _CalendarAppState extends State<SystemAdminDashboard> {
       appBar: AppBar(
         title: const Text(''),
         actions: [
-          const Text('  System Admin Dashboard',
+          const Text('    System Admin Dashboard',
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
           const SizedBox(width: 60),
           IconButton(
@@ -125,7 +125,7 @@ class _CalendarAppState extends State<SystemAdminDashboard> {
                                 style: TextStyle(
                                     fontSize: 22, fontWeight: FontWeight.w700)),
                           ),
-                          Text('2023-2024',
+                          Text('2023',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w700)),
                         ],

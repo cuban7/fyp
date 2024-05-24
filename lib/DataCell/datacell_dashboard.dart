@@ -32,8 +32,12 @@ class _CalendarAppState extends State<DatacellDashboard> {
   ];
 
   List<DateTime> examDates = [
-    DateTime(2024, 1, 10), DateTime(2024, 1, 11), DateTime(2024, 1, 12),
-    DateTime(2024, 1, 13), DateTime(2024, 1, 14), DateTime(2024, 1, 15),
+    DateTime(2024, 1, 10),
+    DateTime(2024, 1, 11),
+    DateTime(2024, 1, 12),
+    DateTime(2024, 1, 13),
+    DateTime(2024, 1, 14),
+    DateTime(2024, 1, 15),
     DateTime(2024, 1, 16),
   ];
 
@@ -54,7 +58,8 @@ class _CalendarAppState extends State<DatacellDashboard> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const NotificationScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const NotificationScreen()),
               );
             },
           ),
@@ -75,33 +80,33 @@ class _CalendarAppState extends State<DatacellDashboard> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Add Seating Plan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => addSittingplan()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Add Seating Plan'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => addSittingplan()),
+          //     );
+          //   },
+          // ),
           ListTile(
             title: const Text('Add Timetable'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => addTeachersTT()),
+                MaterialPageRoute(builder: (context) => addTT()),
               );
             },
           ),
-          ListTile(
-            title: const Text('Add Duty Sheet'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) =>  addStudentsTT()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Add Duty Sheet'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => addDutysheet()),
+          //     );
+          //   },
+          // ),
           const Divider(),
           ListTile(
             title: const Text('Logout'),
@@ -111,13 +116,13 @@ class _CalendarAppState extends State<DatacellDashboard> {
               // For example, you can navigate to the login screen
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) =>  LoginScreen()),
+                MaterialPageRoute(builder: (context) => LoginScreen()),
               );
             },
           ),
         ]),
       ),
-       body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -152,7 +157,7 @@ class _CalendarAppState extends State<DatacellDashboard> {
                                 style: TextStyle(
                                     fontSize: 22, fontWeight: FontWeight.w700)),
                           ),
-                          Text('2023-2024',
+                          Text('2023',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w700)),
                         ],

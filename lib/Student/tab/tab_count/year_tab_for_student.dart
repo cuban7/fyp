@@ -137,67 +137,59 @@ class YearCalendarStd extends StatelessWidget {
     Function(int) onMonthSelected,
   ) {
     List<Widget> rows = [];
-    for (int month = 2; month <= 12; month += 3) {
-      int nextMonth = month + 1;
-      int secondMonth = nextMonth + 1;
-      if (nextMonth <= 12) {
-        rows.add(Row(
-          children: [
-            const SizedBox(
-              width: 5,
-            ),
-            GestureDetector(
-              onTap: () {
-                onMonthSelected(month);
-              },
-              child: YearCalendarForStudentsWidgetClass(
-                month: month,
-                year: year,
-                eventDates: eventDates,
-                holidays: holidays,
-                examDates: examDates,
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                onMonthSelected(nextMonth);
-              },
-              child: YearCalendarForStudentsWidgetClass(
-                month: nextMonth,
-                year: year,
-                eventDates: eventDates,
-                holidays: holidays,
-                examDates: examDates,
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                onMonthSelected(secondMonth);
-              },
-              child: YearCalendarForStudentsWidgetClass(
-                month: secondMonth,
-                year: year,
-                eventDates: eventDates,
-                holidays: holidays,
-                examDates: examDates,
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-          ],
-        ));
-      } else {
-        rows.add(YearCalendarForStudentsWidgetClass(
-          month: month,
-          year: year,
-          eventDates: eventDates,
-          holidays: holidays,
-          examDates: examDates,
-        ));
-      }
+    List<int> months = [
+      9, 10, 11, // September, October, November
+      12, 1, 2, // December, January, February
+      3, 4, 5, // March, April, May
+      6, 7, 8 // June, July, August
+    ];
+
+    for (int i = 0; i < months.length; i += 3) {
+      int month1 = months[i];
+      int month2 = months[i + 1];
+      int month3 = months[i + 2];
+      rows.add(Row(
+        children: [
+          const SizedBox(
+            width: 5,
+          ),
+          _buildMonth(context, year, month1, eventDates, holidays, examDates,
+              onMonthSelected),
+          _buildMonth(context, year, month2, eventDates, holidays, examDates,
+              onMonthSelected),
+          _buildMonth(context, year, month3, eventDates, holidays, examDates,
+              onMonthSelected),
+          const SizedBox(
+            width: 5,
+          ),
+        ],
+      ));
     }
+
     return Column(children: rows);
+  }
+
+  static Widget _buildMonth(
+    BuildContext context,
+    int year,
+    int month,
+    List<DateTime> eventDates,
+    List<DateTime> holidays,
+    List<DateTime> examDates,
+    Function(int) onMonthSelected,
+  ) {
+    return GestureDetector(
+      onTap: () {
+        onMonthSelected(month);
+      },
+      child: YearCalendarForStudentsWidgetClass(
+        month: month,
+        year: year,
+        eventDates: eventDates,
+        holidays: holidays,
+        examDates: examDates,
+      ),
+    );
   }
 }
 
@@ -309,10 +301,15 @@ class YearCalendarForStudentsWidgetClass extends StatelessWidget {
                   bool isSummerSemester = date.isAfter(DateTime(year, 6, 30)) &&
                       date.isBefore(DateTime(year, 8, 30));
 
+                  bool isToday = date.day == now.day &&
+                      date.month == now.month &&
+                      date.year == now.year;
+
                   return DecoratedBox(
                     decoration: BoxDecoration(
                       border: Border.all(
                           color: Colors.black.withOpacity(.5), width: .5),
+                      color: isToday ? Colors.blue : null,
                     ),
                     child: Container(
                       height: 17,
@@ -321,8 +318,10 @@ class YearCalendarForStudentsWidgetClass extends StatelessWidget {
                       decoration: const BoxDecoration(),
                       child: Text(
                         date.day.toString(),
-                        style:
-                            const TextStyle(color: Colors.black, fontSize: 10),
+                        style: TextStyle(
+                          color: isToday ? Colors.white : Colors.black,
+                          fontSize: 10,
+                        ),
                       ),
                     ),
                   );

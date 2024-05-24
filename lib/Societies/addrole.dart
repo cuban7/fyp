@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:fyp_academic_calendar/Societies/addmember.dart';
 import 'package:fyp_academic_calendar/Societies/addupdate_event.dart';
@@ -14,13 +13,22 @@ class addrole extends StatefulWidget {
 }
 
 class _AddRoleScreenState extends State<addrole> {
+  final TextEditingController _aridnoController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _degreeController = TextEditingController();
   final TextEditingController _semController = TextEditingController();
   final TextEditingController _roleController =
       TextEditingController(); // Add role controller
+  // final TextEditingController _societyController =
+  //     TextEditingController(); // Add society controller
   List<String> _roles = ["President", "CP", "Member"]; // Role options
+  // List<String> _societies = [
+  //   "Programming club",
+  //   "Debating Society",
+  //   "Sports"
+  // ]; // Society options
 
+  @override
   void initState() {
     super.initState();
     fetchAridno();
@@ -28,7 +36,7 @@ class _AddRoleScreenState extends State<addrole> {
 
   Future<void> fetchAridno() async {
     final response = await http
-        .get(Uri.parse('http://192.168.1.154/fyp_1/api/Society/StudentAridno'));
+        .get(Uri.parse('http://192.168.0.119/fyp_1/api/Society/StudentAridno'));
 
     if (response.statusCode == 200) {
       Map<String, dynamic> responseData = json.decode(response.body);
@@ -44,10 +52,12 @@ class _AddRoleScreenState extends State<addrole> {
 
   @override
   void dispose() {
+    _aridnoController.dispose();
     _nameController.dispose();
     _degreeController.dispose();
     _semController.dispose();
     _roleController.dispose();
+    // _societyController.dispose();
     super.dispose();
   }
 
@@ -95,15 +105,15 @@ class _AddRoleScreenState extends State<addrole> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Add Member'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => addmember()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Add Member'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => addmember()),
+          //     );
+          //   },
+          // ),
           ListTile(
             title: const Text('Student Affair'),
             onTap: () {
@@ -150,7 +160,7 @@ class _AddRoleScreenState extends State<addrole> {
                         SizedBox(height: 10),
                         Text('BIIT Academic Calendar',
                             style: TextStyle(fontSize: 18)),
-                        Text('2023-2024',
+                        Text('2023',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                       ],
@@ -169,11 +179,15 @@ class _AddRoleScreenState extends State<addrole> {
               ],
             ),
             const SizedBox(height: 20),
-            _buildDropdownField('Arid No'),
-            _buildTextField("Name", _nameController),
-            _buildTextField("Degree", _degreeController),
-            _buildTextField("Semester", _semController),
-            _buildDropdownField("Role"), // Add Role dropdown
+            _buildTextField("Arid No", _aridnoController,
+                hasSearchButton: true),
+            _buildTextField("Name", _nameController, editable: false),
+            _buildTextField("Degree", _degreeController, editable: false),
+            _buildTextField("Semester", _semController, editable: false),
+            _buildDropdownField(
+                "Role", _roles, _roleController), // Add Role dropdown
+            // _buildDropdownField("Society", _societies,
+            //     _societyController), // Add Society dropdown
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
@@ -197,7 +211,7 @@ class _AddRoleScreenState extends State<addrole> {
   }
 
   Widget _buildTextField(String label, TextEditingController controller,
-      {bool hasSearchButton = false}) {
+      {bool hasSearchButton = false, bool editable = true}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       child: Row(
@@ -214,18 +228,26 @@ class _AddRoleScreenState extends State<addrole> {
             child: TextField(
               controller: controller,
               style: const TextStyle(color: Colors.black),
-              enabled: false,
+              readOnly: !editable,
               decoration: InputDecoration(
+                suffixIcon: hasSearchButton
+                    ? IconButton(
+                        icon: const Icon(Icons.search),
+                        onPressed: () {
+                          loadDetail(controller.text);
+                        },
+                      )
+                    : null,
                 filled: true,
-                fillColor: Colors.grey[200],
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.blue),
-                  borderRadius: BorderRadius.circular(10),
-                ),
+                fillColor: editable ? Colors.grey[200] : Colors.grey[300],
+                // enabledBorder: OutlineInputBorder(
+                //   borderSide: const BorderSide(color: Colors.grey),
+                //   borderRadius: BorderRadius.circular(10),
+                // ),
+                // focusedBorder: OutlineInputBorder(
+                //   borderSide: const BorderSide(color: Colors.blue),
+                //   borderRadius: BorderRadius.circular(10),
+                // ),
               ),
             ),
           ),
@@ -234,36 +256,33 @@ class _AddRoleScreenState extends State<addrole> {
     );
   }
 
-  Widget _buildDropdownField(String label) {
+  Widget _buildDropdownField(
+      String label, List<String> options, TextEditingController controller) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       child: Row(
         children: [
           SizedBox(
             width: 100,
-            child: Row(
-              children: [
-                Text(
-                  label,
-                  style: const TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                ),
-              ],
+            child: Text(
+              label,
+              style: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),
           Expanded(
             child: DropdownButtonFormField<String>(
-              value: _roles.isNotEmpty ? _roles[0] : null,
-              items: _roles.map((String role) {
+              value: options.isNotEmpty ? options[0] : null,
+              items: options.map((String option) {
                 return DropdownMenuItem<String>(
-                  value: role,
-                  child: Text(role),
+                  value: option,
+                  child: Text(option),
                 );
               }).toList(),
               onChanged: (String? value) {
                 setState(() {
-                  // Assign the selected role to the controller
-                  _roleController.text = value ?? '';
+                  // Assign the selected option to the controller
+                  controller.text = value ?? '';
                 });
               },
             ),
@@ -271,5 +290,25 @@ class _AddRoleScreenState extends State<addrole> {
         ],
       ),
     );
+  }
+
+  loadDetail(String value) async {
+    print(value);
+    final response = await http.get(Uri.parse(
+        'http://192.168.0.119/fyp_1/api/Society/StudentAridno?ARIDNo=' +
+            value));
+
+    if (response.statusCode == 200) {
+      var responseData = json.decode(response.body);
+      print(responseData);
+
+      setState(() {
+        _nameController.text = responseData['Name'];
+        _degreeController.text = responseData['Discipline'];
+        _semController.text = responseData['Semester'];
+      });
+    } else {
+      throw Exception('Failed to load profile data');
+    }
   }
 }

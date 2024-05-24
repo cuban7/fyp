@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 import 'package:fyp_academic_calendar/Student/tab/tab_count/event_tab_for_student.dart';
 import 'package:fyp_academic_calendar/Student/tab/tab_count/semester_tab_student.dart';
 import 'package:fyp_academic_calendar/Student/tab/tab_count/year_tab_for_student.dart';
@@ -34,8 +32,12 @@ class _CalendarAppState extends State<SocietieseDashboard> {
   ];
 
   List<DateTime> examDates = [
-    DateTime(2024, 1, 10), DateTime(2024, 1, 11), DateTime(2024, 1, 12),
-    DateTime(2024, 1, 13), DateTime(2024, 1, 14), DateTime(2024, 1, 15),
+    DateTime(2024, 1, 10),
+    DateTime(2024, 1, 11),
+    DateTime(2024, 1, 12),
+    DateTime(2024, 1, 13),
+    DateTime(2024, 1, 14),
+    DateTime(2024, 1, 15),
     DateTime(2024, 1, 16),
   ];
 
@@ -56,13 +58,14 @@ class _CalendarAppState extends State<SocietieseDashboard> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const SocietyNotification()),
+                MaterialPageRoute(
+                    builder: (context) => const SocietyNotification()),
               );
             },
           ),
         ],
       ),
-        drawer: Drawer(
+      drawer: Drawer(
         child: ListView(padding: EdgeInsets.zero, children: [
           const DrawerHeader(
             decoration: BoxDecoration(color: Colors.teal),
@@ -86,16 +89,16 @@ class _CalendarAppState extends State<SocietieseDashboard> {
               );
             },
           ),
+          // ListTile(
+          //   title: const Text('Add Member'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => addmember()),
+          //     );
+          //   },
+          // ),
           ListTile(
-            title: const Text('Add Member'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => addmember()),
-              );
-            },
-          ),
-             ListTile(
             title: const Text('Student Affair'),
             onTap: () {
               Navigator.push(
@@ -104,7 +107,6 @@ class _CalendarAppState extends State<SocietieseDashboard> {
               );
             },
           ),
-       
           const Divider(),
           ListTile(
             title: const Text('Logout'),
@@ -120,7 +122,7 @@ class _CalendarAppState extends State<SocietieseDashboard> {
           ),
         ]),
       ),
-       body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -155,7 +157,7 @@ class _CalendarAppState extends State<SocietieseDashboard> {
                                 style: TextStyle(
                                     fontSize: 22, fontWeight: FontWeight.w700)),
                           ),
-                          Text('2023-2024',
+                          Text('2023',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w700)),
                         ],
